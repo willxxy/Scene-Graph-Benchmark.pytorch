@@ -76,6 +76,7 @@ class TransformerPredictor(nn.Module):
             union_features (Tensor): (batch_num_rel, context_pooling_dim): visual union feature of each pair
         """
         if self.attribute_on:
+            #model_vctree.py file
             obj_dists, obj_preds, att_dists, edge_ctx = self.context_layer(roi_features, proposals, logger)
         else:
             obj_dists, obj_preds, edge_ctx = self.context_layer(roi_features, proposals, logger)
