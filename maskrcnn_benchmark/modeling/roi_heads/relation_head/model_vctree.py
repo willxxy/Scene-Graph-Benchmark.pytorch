@@ -274,6 +274,11 @@ class VCTreeLSTMContext(nn.Module):
             self.untreated_obj_feat = self.moving_average(self.untreated_obj_feat, obj_pre_rep)
             self.untreated_edg_feat = self.moving_average(self.untreated_edg_feat, cat((obj_embed2, x), -1))
 
+        # obj_dists shape (23, 15)
+        # obj_preds shape (23)
+        # edge_ctx shape (23, 512)
+        # bi_preds list length of list 1 of tensor with shape (11,11)
+
         return obj_dists, obj_preds, edge_ctx, bi_preds
 
     def moving_average(self, holder, input):
